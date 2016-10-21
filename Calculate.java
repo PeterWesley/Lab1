@@ -4,7 +4,7 @@ import java.util.regex.Pattern;
 
 public class Calculate
 {
-	public String expression() throws IOException 
+	public String expression() throws IOException
 	{
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		String exp = br.readLine();
@@ -21,7 +21,7 @@ public class Calculate
 			//Run the function of derivative
 			if(str.equals("!d"))
 				return exp;
-		}		
+		}
 
 		//Judge the illegal char by java.util.regex
 		String reg1 = "[^0-9a-zA-Z(\\*)(\\+)]";
@@ -107,7 +107,7 @@ public class Calculate
 			exp = Multiple(exp);
 			return exp;
 		}
-		
+
 		//first step,make the mutiple calculate
 		String AddPart[] = exp.split("\\+");
 		StringBuilder MidExp = new StringBuilder();//using StringBuilder to concat String
@@ -205,19 +205,19 @@ public class Calculate
 					for(int k=1; k<varCount; k++)
 					{
 						varFactors.append("*").append(var);
-					}						
+					}
 					varFactors.append(Factors.toString());
-					AddPart = varFactors.toString();					
+					AddPart = varFactors.toString();
 				}
 				SBAddSeg.append("+").append(AddPart);
-			}			
+			}
 		}
 		finalExp = SBAddSeg.toString().substring(1);
 		finalExp = Calculate.CalculateExp(finalExp);
 		return finalExp;
 	}
 
-	public static void main(String[] args) throws IOException 
+	public static void main(String[] args) throws IOException
 	{
 		Calculate Calobject = new Calculate();
 		String exp;
@@ -244,7 +244,7 @@ public class Calculate
 				System.out.println(SimpExp);
 			}
 			long SimendTime=System.nanoTime();
-			
+
 			//input the dervative expression
 			String DervativeExp = Calobject.expression();
 			//If the string "!d/dx" in it,then run dervative()
@@ -259,8 +259,8 @@ public class Calculate
 
 			//Output the time of Simplify and Derivative
 			System.out.println("Simplify and Derivative time:"+(SimendTime-SimstartTime+DerendTime-DerstartTime)/1000+"us");
-			
+
 			exp = Calobject.expression();
-		} 
+		}
 	}
 }
