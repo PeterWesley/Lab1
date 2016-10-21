@@ -15,7 +15,7 @@ public class Calculate
 		if(exp.length()>2)
 		{
 			String str = exp.substring(0,2);
-			//Run the function of simplify
+			//(add something)Run the function of simplify
 			if(str.equals("!s"))
 				return exp;
 			//Run the function of derivative
@@ -23,7 +23,7 @@ public class Calculate
 				return exp;
 		}
 
-		//Judge the illegal char by java.util.regex
+		//Judge the illegal char by(so,can i add chinese?)java.util.regex
 		String reg1 = "[^0-9a-zA-Z(\\*)(\\+)]";
 		if(Match(reg1,exp))
 		{
